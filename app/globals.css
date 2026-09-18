@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0b;
+  --foreground: #f3f1ea;
+  --color-ink: #0a0a0b;
+  --color-ink-2: #141416;
+  --color-ink-3: #1d1d20;
+  --color-gold: #cfa440;
+  --color-gold-light: #e8cf8a;
+  --color-gold-dark: #9a7726;
+  --color-cream: #f3f1ea;
+  --color-cream-dim: #b9b6ac;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ink: var(--color-ink);
+  --color-ink-2: var(--color-ink-2);
+  --color-ink-3: var(--color-ink-3);
+  --color-gold: var(--color-gold);
+  --color-gold-light: var(--color-gold-light);
+  --color-gold-dark: var(--color-gold-dark);
+  --color-cream: var(--color-cream);
+  --color-cream-dim: var(--color-cream-dim);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-playfair);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+.gold-gradient-text {
+  background: linear-gradient(110deg, #9a7726 0%, #e8cf8a 35%, #cfa440 55%, #f3e2ad 75%, #9a7726 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+.hairline {
+  border-color: rgba(207, 164, 64, 0.25);
+}
+
+/* subtle noise/texture overlay used on canvas art tiles */
+.canvas-texture {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.06) 0, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.05) 0, transparent 45%);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease both;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
